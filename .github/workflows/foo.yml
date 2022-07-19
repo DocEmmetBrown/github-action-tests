@@ -44,7 +44,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${{ step.ml-input.outputs.list }}"
+                  "text": "${{ steps.ml-input.outputs.list }}"
                 }
               }
             ]
