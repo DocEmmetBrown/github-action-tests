@@ -26,7 +26,8 @@ jobs:
       id: ml-input
       run: | 
         content=$(ls -la)
-        content="${content//$'\n'/'%0A'}" 
+        content="${content//$'\n'/'%0A'}"
+        content="${content//$'\r'/'%0D'}" 
         echo "::set-output name=list::$content"
     
     - name: Post to a Slack channel
