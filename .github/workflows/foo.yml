@@ -22,6 +22,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    - name: get multiline input
+      id: ml-input
+      run: ls -la
+    
     - name: Post to a Slack channel
       id: slack
       uses: slackapi/slack-github-action@v1.19.0
@@ -38,7 +42,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "GitHub Action build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+                  "text": "${{ step.ml-input.output.stdout }}"
                 }
               }
             ]
