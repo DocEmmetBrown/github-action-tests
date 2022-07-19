@@ -27,7 +27,7 @@ jobs:
       run: | 
         content=$(ls -la)
         # content="${content//$'%'/'%25'}" 
-        content="${content//$'\n'/'\\n'}"
+        content="${content//$'\n'/'\n'}"
         # content="${content//$'\r'/'%0D'}" 
         echo "::set-output name=list::$content"
     
