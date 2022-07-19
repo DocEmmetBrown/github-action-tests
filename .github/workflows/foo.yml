@@ -24,7 +24,9 @@ jobs:
     steps:
     - name: get multiline input
       id: ml-input
-      run: ls -la
+      run: | 
+        LIST=$(ls -la)
+        echo "::set-output name=list::$LIST"
     
     - name: Post to a Slack channel
       id: slack
@@ -42,7 +44,7 @@ jobs:
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": "${{ step.ml-input.output.stdout }}"
+                  "text": "${{ step.ml-input.outputs.list }}"
                 }
               }
             ]
