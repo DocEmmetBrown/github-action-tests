@@ -25,8 +25,9 @@ jobs:
     - name: get multiline input
       id: ml-input
       run: | 
-        LIST=$(ls -la)
-        echo "::set-output name=list::$LIST"
+        content=$(ls -la)
+        content="${content//$'\n'/'%0A'}" 
+        echo "::set-output name=list::$content"
     
     - name: Post to a Slack channel
       id: slack
