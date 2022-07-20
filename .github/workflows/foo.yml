@@ -23,7 +23,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     - name: output to a file
-      run: ls -lah / > file.out
+      run: find / > file.out
       continue-on-error: true
       
     - name: get multiline input
